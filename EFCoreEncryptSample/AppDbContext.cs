@@ -4,6 +4,8 @@ using Microsoft.EntityFrameworkCore.Storage;
 
 using Microsoft.EntityFrameworkCore.DataEncryption;
 using Microsoft.EntityFrameworkCore.DataEncryption.Providers;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System.ComponentModel.DataAnnotations;
 
 namespace EFCoreEncryptSample
 {
@@ -40,7 +42,20 @@ namespace EFCoreEncryptSample
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.UseEncryption(_provider);
+            //fluent
+
+            //EntityTypeBuilder<Student> studentEntityBuilder = modelBuilder.Entity<Student>();
+
+            //studentEntityBuilder.Property(x => x.Email)
+            //    .IsEncrypted();
+
+            //studentEntityBuilder.Property(x => x.Phone)
+            //    .IsEncrypted(StorageFormat.Binary);
+
+            if (_provider is not null)
+            {
+                modelBuilder.UseEncryption(_provider);
+            }
 
             base.OnModelCreating(modelBuilder);
         }
