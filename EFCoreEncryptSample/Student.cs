@@ -8,11 +8,11 @@ namespace EFCoreEncryptSample
         public string Name { get; set; }
 
         //[Encrypted]
-        [Encrypted(StorageFormat.Binary)]
+        //[Encrypted(StorageFormat.Binary)]
         public string Email { get; set; }
 
         //[Encrypted]
-        [Encrypted(StorageFormat.Base64)]
+       // [Encrypted(StorageFormat.Base64)]
         public string Phone { get; set; }
     }
 }
