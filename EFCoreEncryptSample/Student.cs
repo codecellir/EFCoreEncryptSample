@@ -1,4 +1,4 @@
-﻿using EntityFrameworkCore.EncryptColumn.Attribute;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace EFCoreEncryptSample
 {
@@ -7,10 +7,12 @@ namespace EFCoreEncryptSample
         public int Id { get; set; }
         public string Name { get; set; }
 
-        [EncryptColumn]
+        //[Encrypted]
+        [Encrypted(StorageFormat.Binary)]
         public string Email { get; set; }
 
-        [EncryptColumn]
+        //[Encrypted]
+        [Encrypted(StorageFormat.Base64)]
         public string Phone { get; set; }
     }
 }
